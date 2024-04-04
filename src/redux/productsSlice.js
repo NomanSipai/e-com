@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 const initialState = {
   products: [],
@@ -10,7 +9,9 @@ const initialState = {
   totalQuantity: 0,
   totalPrice: 0,
   showCart: false,
-  productDetailsData: [],
+  productDetailsData: localStorage.getItem("product-details")
+    ? JSON.parse(localStorage.getItem("product-details"))
+    : [],
   cartProducts: localStorage.getItem("product")
     ? JSON.parse(localStorage.getItem("product"))
     : [],
@@ -51,8 +52,8 @@ const products = createSlice({
       if (find >= 0) {
         state.cartProducts[find].quantity += 1;
       } else {
-        localStorage.setItem("product", JSON.stringify(state.cartProducts));
         state.cartProducts.push(action.payload);
+        localStorage.setItem("product", JSON.stringify(state.cartProducts));
       }
     },
     filterProduct: (state, action) => {
@@ -102,6 +103,10 @@ const products = createSlice({
     },
     productDetails: (state, action) => {
       state.productDetailsData.push(action.payload);
+      localStorage.setItem(
+        "product-details",
+        JSON.stringify(state.productDetailsData)
+      );
     },
   },
 });

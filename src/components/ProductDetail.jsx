@@ -1,9 +1,12 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/productsSlice";
 
 const ProductDetail = () => {
   const data = useSelector((state) => state.app.productDetailsData);
   const dataInd = data.length - 1;
   const product = data[dataInd];
+  const dispatch = useDispatch();
+  console.log(product);
   return (
     <div>
       <div className="bg-gray-100 dark:bg-gray-800 py-8">
@@ -19,7 +22,9 @@ const ProductDetail = () => {
               </div>
               <div className="flex -mx-2 mb-4">
                 <div className="w-full px-2">
-                  <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
+                  <button
+                    onClick={() => dispatch(addToCart(product))}
+                    className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
                     Add to Cart
                   </button>
                 </div>
@@ -38,7 +43,7 @@ const ProductDetail = () => {
                     Price:
                   </span>
                   <span className="text-gray-600 dark:text-gray-300">
-                    ${product.price}
+                    ${data.price}
                   </span>
                 </div>
                 <div>
@@ -48,39 +53,6 @@ const ProductDetail = () => {
                   <span className="text-gray-600 dark:text-gray-300">
                     In Stock
                   </span>
-                </div>
-              </div>
-              <div className="mb-4">
-                <span className="font-bold text-gray-700 dark:text-gray-300">
-                  Select Color:
-                </span>
-                <div className="flex items-center mt-2">
-                  <button className="w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2" />
-                  <button className="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2" />
-                  <button className="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2" />
-                  <button className="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2" />
-                </div>
-              </div>
-              <div className="mb-4">
-                <span className="font-bold text-gray-700 dark:text-gray-300">
-                  Select Size:
-                </span>
-                <div className="flex items-center mt-2">
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">
-                    S
-                  </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">
-                    M
-                  </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">
-                    L
-                  </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">
-                    XL
-                  </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">
-                    XXL
-                  </button>
                 </div>
               </div>
               <div>
