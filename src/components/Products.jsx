@@ -37,7 +37,7 @@ const Products = () => {
                   onClick={() => dispatchProducts(productDetails(product))}
                   to="/product-detail ">
                   <img
-                    className="object-cover block mx-auto"
+                    className="object-cover block hover:opacity-60 mx-auto"
                     src={product.image}
                     alt="product image"
                   />
