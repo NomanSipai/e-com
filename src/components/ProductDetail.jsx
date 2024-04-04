@@ -43,7 +43,7 @@ const ProductDetail = () => {
                     Price:
                   </span>
                   <span className="text-gray-600 dark:text-gray-300">
-                    ${data.price}
+                    ${product.price}
                   </span>
                 </div>
                 <div>
