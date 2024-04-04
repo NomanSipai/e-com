@@ -24,7 +24,7 @@ const Header = () => {
             <Link to="/cart">
               <li className="me-16 p-5 cursor-pointer flex text-red-500 font-bold text-xl">
                 <img className="w-6" src={cartLogo} alt="cart-img" />
-                {cartProducts.length}
+                {cartProducts.length == 0 ? "" : cartProducts.length}
               </li>
             </Link>
           </ul>

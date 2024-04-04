@@ -9,10 +9,10 @@ const Products = () => {
     lowRatting: "bg-yellow-500",
   };
   const data = useSelector((state) => state.app.products);
-  const filterData = data.filter(
-    (item) => item.category !== "jewelery" && item.category !== "electronics"
-  );
-  const updateFilter = filterData.map((item) => ({ ...item, quantity: 1 }));
+  // const filterData = data.filter(
+  //   (item) => item.category !== "jewelery" && item.category !== "electronics"
+  // );
+  const updateFilter = data.map((item) => ({ ...item, quantity: 1 }));
 
   const dispatchProducts = useDispatch();
   useEffect(() => {
