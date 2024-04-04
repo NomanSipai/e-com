@@ -1,4 +1,3 @@
-// import { Route, Routes } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Products from "./components/Products";
@@ -13,15 +12,8 @@ function App() {
       </div>
       <Header />
       <Routes>
-        <Route path="/" element={<Products />} />
-        <Route
-          path="/cart"
-          element={
-            <>
-              <SideCart /> <Products />
-            </>
-          }
-        />
+        <Route path="*" element={<Products />} />
+        <Route path="/cart" element={<SideCart />} />
       </Routes>
     </>
   );
