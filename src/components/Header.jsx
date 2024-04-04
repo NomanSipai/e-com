@@ -1,5 +1,4 @@
 import Logo from "../assets/logo.svg";
-import cartLogo from "../assets/cart3.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
