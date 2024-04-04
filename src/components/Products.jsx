@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 const Products = () => {
   const ratingColor = {
-    highRatting: "bg-green-400",
-    lowRatting: "bg-yellow-500",
+    highRatting: "bg-[#23BB75]",
+    lowRatting: "bg-[#F4B619]",
   };
   const data = useSelector((state) => state.app.products);
   // const filterData = data.filter(
