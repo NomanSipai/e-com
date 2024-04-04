@@ -9,11 +9,11 @@ const ProductDetail = () => {
   console.log(product);
   return (
     <div>
-      <div className="bg-gray-100 dark:bg-gray-800 py-8">
+      <div className=" bg-gray-100 dark:bg-gray-800 py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row -mx-4">
             <div className="md:flex-1 px-4">
-              <div className="h-[460px] rounded-lg bg-white dark:bg-gray-700 mb-4">
+              <div className="h-[460px] px-5 py-5 rounded-lg bg-white dark:bg-gray-700 mb-4">
                 <img
                   className="w-full h-full object-contain"
                   src={product.image}
