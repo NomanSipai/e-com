@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../redux/productsSlice";
 import { addToCart } from "../redux/productsSlice";
+import { productDetails } from "../redux/productsSlice";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const ratingColor = {
@@ -30,9 +32,10 @@ const Products = () => {
               <div
                 key={product.id}
                 className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-                <a
-                  className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                  href="#">
+                <Link
+                  className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl cursor-pointer"
+                  onClick={() => dispatchProducts(productDetails(product))}
+                  to="/product-detail ">
                   <img
                     className="object-cover block mx-auto"
                     src={product.image}
@@ -41,7 +44,7 @@ const Products = () => {
                   <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white capitalize">
                     {product.category}
                   </span>
-                </a>
+                </Link>
                 <div className="mt-4 px-5 pb-5">
                   <a href="#">
                     <h5 className="text-xl truncate tracking-tight text-slate-900">

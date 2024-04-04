@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Products from "./components/Products";
 import SideCart from "./components/SideCart";
 import { Toaster } from "react-hot-toast";
+import ProductDetail from "./components/ProductDetail";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="*" element={<Products />} />
         <Route path="/cart" element={<SideCart />} />
+        <Route path="/product-detail" element={<ProductDetail />} />
       </Routes>
     </>
   );

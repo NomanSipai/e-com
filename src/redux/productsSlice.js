@@ -10,6 +10,7 @@ const initialState = {
   totalQuantity: 0,
   totalPrice: 0,
   showCart: false,
+  productDetailsData: [],
   cartProducts: localStorage.getItem("product")
     ? JSON.parse(localStorage.getItem("product"))
     : [],
@@ -99,6 +100,9 @@ const products = createSlice({
       state.cartProducts = [];
       localStorage.setItem("product", JSON.stringify(state.cartProducts));
     },
+    productDetails: (state, action) => {
+      state.productDetailsData.push(action.payload);
+    },
   },
 });
 
@@ -112,6 +116,7 @@ export const {
   handleCheckOut,
   toggleShowCart,
   filterProduct,
+  productDetails,
 } = products.actions;
 
 export default products.reducer;
