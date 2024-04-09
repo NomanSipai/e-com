@@ -1,4 +1,4 @@
-import Logo from "../assets/logo.svg";
+import Logo from "../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -8,10 +8,10 @@ const Header = () => {
 
   return (
     <div className="flex justify-between items-center ">
-      <div className="ms-10 mt-2 me-2 mb-2 p-2">
+      <div className="ms-10">
         <img
           onClick={() => navigate("*")}
-          className="w-10 cursor-pointer"
+          className="w-24 cursor-pointer"
           src={Logo}
           alt="logo"
         />
@@ -20,7 +20,7 @@ const Header = () => {
       <div>
         <ul className="flex ">
           <Link to="/cart">
-            <li className="me-16 p-5 cursor-pointer flex text-red-500 font-bold text-xl">
+            <li className="me-12  cursor-pointer flex text-red-500 font-bold text-xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className=" h-8 w-8"
