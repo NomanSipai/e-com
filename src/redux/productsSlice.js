@@ -8,6 +8,7 @@ const initialState = {
   error: null,
   totalQuantity: 0,
   totalPrice: 0,
+  categoryFilterProduct: [],
   showCart: false,
   productDetailsData: localStorage.getItem("product-details")
     ? JSON.parse(localStorage.getItem("product-details"))
@@ -35,6 +36,7 @@ const products = createSlice({
     builder.addCase(getData.fulfilled, (state, action) => {
       state.loading = false;
       state.products = action.payload;
+      state.categoryFilterProduct = state.products;
       state.error = null;
     });
     builder.addCase(getData.rejected, (state, action) => {
@@ -108,6 +110,17 @@ const products = createSlice({
         JSON.stringify(state.productDetailsData)
       );
     },
+    filterCategory: (state, action) => {
+      state.products.map((item) => {
+        if (item.category === action.payload) {
+          state.categoryFilterProduct = state.products.filter(
+            (item) => item.category === action.payload
+          );
+        } else if (action.payload === "All") {
+          state.categoryFilterProduct = state.products;
+        }
+      });
+    },
   },
 });
 
@@ -116,12 +129,14 @@ export const {
   getCartTotal,
   increase,
   decrease,
+  categoryFilterData,
   removeCartProducts,
   toggleCart,
   handleCheckOut,
   toggleShowCart,
   filterProduct,
   productDetails,
+  filterCategory,
 } = products.actions;
 
 export default products.reducer;

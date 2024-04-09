@@ -1,20 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../redux/productsSlice";
 import { addToCart } from "../redux/productsSlice";
 import { productDetails } from "../redux/productsSlice";
 import { Link } from "react-router-dom";
+import CategoryFilter from "./ratting/CategoryFilter";
 
 const Products = () => {
   const ratingColor = {
     highRatting: "bg-[#23BB75]",
     lowRatting: "bg-[#F4B619]",
   };
-  const data = useSelector((state) => state.app.products);
-  // const filterData = data.filter(
-  //   (item) => item.category !== "jewelery" && item.category !== "electronics"
-  // );
-  const updateFilter = data.map((item) => ({ ...item, quantity: 1 }));
+  const data = useSelector((state) => state.app.categoryFilterProduct);
+
+  let updateFilter = data.map((item) => ({ ...item, quantity: 1 }));
 
   const dispatchProducts = useDispatch();
   useEffect(() => {
@@ -23,6 +22,7 @@ const Products = () => {
 
   return (
     <div className=" bg-gray-100 overflow-hidden">
+      <CategoryFilter />
       <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Products</h2>
 
@@ -70,7 +70,7 @@ const Products = () => {
                   </div>
                   <a
                     onClick={() => dispatchProducts(addToCart(product))}
-                    className="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                    className="flex items-center cursor-pointer justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="mr-2 h-6 w-6"
