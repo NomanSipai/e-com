@@ -11,7 +11,6 @@ const ProductDetail = () => {
   const dataInd = data.length - 1;
   const product = data[dataInd];
   const dispatch = useDispatch();
-  console.log(product);
   return (
     <div className="font-[sans-serif] min-h-screen bg-gray-100">
       <div className="p-6 lg:max-w-7xl max-w-4xl mx-auto">
