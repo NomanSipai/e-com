@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const EmtyCart = () => {
   return (
-    <div className="px-4 min-h-screen bg-gray-100 text-center py-10 rounded-xl relative">
+    <div className=" min-h-screen bg-gray-100 text-center py-10 rounded-xl relative">
       <div className="w-4/5 me-auto ms-auto bg-white px-10 py-10">
         <img
           src="https://rukminim2.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
