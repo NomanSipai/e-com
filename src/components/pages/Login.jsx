@@ -4,8 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const [usersData, setUsersData] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,28 +21,30 @@ const Login = () => {
     getUsers();
   }, []);
   const handleLogin = async (e) => {
-    getUsers();
     e.preventDefault();
-
+    getUsers();
+    let isLoggedIn = false;
     usersData.map((item) => {
       if (item.email === email) {
         if (item.password === password) {
           setEmail("");
           setPassword("");
-          redirect("/home");
-          setIsLoggedIn(true);
+          redirect("home");
+          isLoggedIn = true;
+          // setIsLoggedIn(true);
+          console.log(isLoggedIn);
           toast.success("Successfully Login");
-          return;
         }
       }
     });
+
     if (isLoggedIn === false) {
       setEmail("");
       setPassword("");
       toast.error("Invalid Email and Password");
-      setIsLoggedIn(false);
     }
   };
+
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">

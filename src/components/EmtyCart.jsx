@@ -13,7 +13,7 @@ const EmtyCart = () => {
         <div className="mt-3 text-xs">Add items to it now.</div>
         <div className="flex flex-wrap gap-4 mt-5">
           <Link
-            to="*"
+            to="/home"
             className="ms-auto me-auto px-10 py-3 flex justify-center items-center bg-[#2874f0] hover:bg-[#5893f3] text-white text-sm font-bold rounded">
             Continue Shopping
           </Link>

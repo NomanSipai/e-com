@@ -14,7 +14,7 @@ const CategoryFilter = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="p-2 flex items-center justify-center flex-col">
+    <div className="flex items-center justify-center flex-col container mx-auto px-4">
       <div className="flex justify-center items-center mt-5">
         {buttons.map((button, i) => {
           return (

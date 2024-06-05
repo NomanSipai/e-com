@@ -15,11 +15,11 @@ function App() {
       </div>
       <Header />
       <Routes>
-        <Route path="/" exact element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Login />}></Route>
         <Route path="/home" element={<Products />}></Route>
         <Route path="/cart" element={<SideCart />} />
         <Route path="/product-detail" element={<ProductDetail />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </>
   );
