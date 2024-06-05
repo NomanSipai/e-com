@@ -21,7 +21,7 @@ const Products = () => {
   }, []);
 
   return (
-    <div className=" bg-gray-100 overflow-hidden">
+    <div className=" container px-4 mx-auto bg-gray-100 overflow-hidden">
       <CategoryFilter />
       <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Products</h2>
