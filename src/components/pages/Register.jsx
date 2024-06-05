@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
-  // const { users, setUsers, handleRegisterData } = useContext(BlogContext);
   const [users, setUsers] = useState({
     email: "",
     name: "",
