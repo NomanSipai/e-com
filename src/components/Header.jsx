@@ -10,7 +10,7 @@ const Header = () => {
     <div className=" container px-4 mx-auto flex justify-between items-center ">
       <div className="ms-10">
         <img
-          onClick={() => navigate("/home")}
+          onClick={() => navigate("/")}
           className="w-24 cursor-pointer"
           src={Logo}
           alt="logo"
